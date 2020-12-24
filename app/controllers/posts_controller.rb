@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(id: :asc)
   end
 
   def show
@@ -18,6 +18,11 @@ class PostsController < ApplicationController
 
   @post = Post.find(params[:id])
 end
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy!
+    
+  end
 
 
   def adit
